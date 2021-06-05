@@ -57,7 +57,7 @@ async function downloadLogoOfSponsors(doc: GoogleSpreadsheet) {
       return [r.id, r.image] as [string, string]
     })
 
-  const outputPath = path.join(DIST, 'sponsor')
+  const outputPath = path.join(DIST, 'images', 'sponsor')
   await mkdir(outputPath, { recursive: true })
   await downloadImages(images, outputPath)
 }
@@ -88,7 +88,7 @@ async function downloadImagesOfSponsorNews(doc: GoogleSpreadsheet) {
       ]
     })
 
-  const outputPath = path.join(DIST, 'sponsor-news')
+  const outputPath = path.join(DIST, 'images', 'sponsor-news')
   await mkdir(outputPath, { recursive: true })
   await downloadImages(images, outputPath)
 }
