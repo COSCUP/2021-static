@@ -1,0 +1,29 @@
+{
+  "name": "2021-static",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "esno main.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/COSCUP/2021-static.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/COSCUP/2021-static/issues"
+  },
+  "homepage": "https://github.com/COSCUP/2021-static#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "esno": "^0.6.0",
+    "google-spreadsheet": "^3.1.15"
+  },
+  "devDependencies": {
+    "@types/google-spreadsheet": "^3.1.2",
+    "@types/node": "^15.12.1",
+    "typescript": "^4.3.2"
+  }
+}
