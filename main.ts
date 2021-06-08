@@ -3,7 +3,7 @@ import path from 'path'
 import axios from 'axios'
 import { GoogleSpreadsheet } from "google-spreadsheet"
 
-const DIST = path.join(__dirname, './dist/images/')
+const DIST = path.join(__dirname, './dist')
 
 const noop = () => { }
 
