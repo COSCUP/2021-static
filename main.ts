@@ -98,7 +98,7 @@ type YoutubeRowKeys = 'room' | 'link'
 async function YoutubeLinkGen(doc: GoogleSpreadsheet) {
   const sheetId = '2044734677'
   const sheet = doc.sheetsById[sheetId]
-  const filename = 'link.json';
+  const filename = './dist/link.json';
   const rows = await sheet.getRows() as unknown as YoutubeRowKeys[]
   let result = {};
   rows.flatMap((r) => {
