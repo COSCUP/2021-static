@@ -1,5 +1,4 @@
 import { mkdir, rm, writeFile } from 'fs/promises'
-import { openSync, closeSync } from 'fs';
 import path from 'path'
 import axios from 'axios'
 import { GoogleSpreadsheet } from "google-spreadsheet"
@@ -93,28 +92,6 @@ async function downloadImagesOfSponsorNews(doc: GoogleSpreadsheet) {
   await mkdir(outputPath, { recursive: true })
   await downloadImages(images, outputPath)
 }
-type YoutubeRowKeys = 'room' | 'link'
-
-async function YoutubeLinkGen(doc: GoogleSpreadsheet) {
-  const sheetId = '2044734677'
-  const sheet = doc.sheetsById[sheetId]
-  const filename = 'link.json';
-  const rows = await sheet.getRows() as unknown as YoutubeRowKeys[]
-  let result = {};
-  rows.flatMap((r) => {
-    result[`${r['room']}`] = r['link']
-    })
-    let fd;
-
-    try {
-      fd = openSync(filename, 'a');
-      await writeFile(filename, `${JSON.stringify(result)}`);
-    } catch (err) {
-    } finally {
-      if (fd !== undefined)
-        closeSync(fd);
-    }
-}
 
 async function run() {
   const loadedDoc = await getLoadedSpreadsheetDocument()
@@ -126,7 +103,6 @@ async function run() {
   await rm(DIST, { recursive: true, force: true }).catch(noop)
   await downloadLogoOfSponsors(loadedDoc)
   await downloadImagesOfSponsorNews(loadedDoc)
-  await YoutubeLinkGen(loadedDoc)
   console.log('Done')
 }
 
